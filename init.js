@@ -1,9 +1,10 @@
 const prompts = require('prompts');
 const { execSync } = require("child_process");
 const { replaceContents } = require('./utils');
-const fs = require('fs')
+const fs = require('fs');
 
 module.exports = async (path) => {
+    const { default: ora } = await import('ora');
     if (path == '.') {
         const currentDirectory = await prompts({
             type: 'confirm',
@@ -15,6 +16,13 @@ module.exports = async (path) => {
         if (!currentDirectory.continue) {
             return;
         }
+    }
+
+    try {
+        const proc = await execSync('yarn -v')
+    } catch (error) {
+        console.log('Kindly install yarn using "npm i -g yarn"');
+        process.exit(1)
     }
 
     path = path == "." || "./" ? path : `./${path}`;
@@ -34,22 +42,22 @@ module.exports = async (path) => {
     })
 
     if (useExpo.continue) {
-        console.log('Initializing Expo Project...')
+        const installingExpoOra = ora('Initializing Expo Project...').start();
         const expoInit = execSync(`expo init ${path}`, {
             stdio: 'inherit'
         })
-
+        installingExpoOra.succeed('Expo Project Initialized');
         // expoInit.on('close', code => {
         //     if (code !== 0) {
         //         console.log('expo-cli not installed globally. Please install it globally with `npm install -g expo-cli');
         //     }
         // })
     } else {
-        console.log('Initializing React Native Project...')
+        const initializingRN = ora('Initializing React Native Project...').start();
         const reactNativeInit = execSync("npx react-native init --version react-native@0.63", {
-            stdio: 'inherit'
+            stdio: 'ignore'
         })
-
+        initializingRN.succeed('React Native Project Initialized');
         // reactNativeInit.on('close', code => {
         //     if (code !== 0) {
         //         console.log('Unexpected error. Please try again.');
@@ -57,9 +65,13 @@ module.exports = async (path) => {
         // })
     }
 
+    const initalizingVueNative = ora('Initializing Vue Native in Project...').start();
+
     execSync(`cd ${path} && yarn add vue-native-core vue-native-scripts vue-native-helper`, {
-        stdio: 'inherit'
+        stdio: 'ignore'
     })
+
+    initalizingVueNative.succeed('Vue Native Initialized');
 
     fs.copyFileSync(`./assets/vueTransformerPlugin.js`, `${path}/vueTransformerPlugin.js`)
 
@@ -67,22 +79,20 @@ module.exports = async (path) => {
 
 
     if (installRouter.continue) {
-        console.log('Installing Vue Native Router...')
+        const installingVueRouter = ora('Installing Vue Native Router...').start();
         const vueRouter = execSync(`cd ${path} && yarn add vue-native-router`, {
-            stdio: 'inherit'
+            stdio: 'ignore'
         })
-
+        installingVueRouter.succeed('Vue Native Router Installed');
         // vueRouter.on('close', code => {
         //     if (code !== 0) {
         //         console.log('Unexpected error. Please try again.');
         //     }
         // })
 
-        console.log('Installing Vue Native Rotuer Dependencies...')
-        const vueRouterDeps = execSync(`cd ${path} && yarn add react-native-screens react-native-reanimated react-native-paper react-native-gesture-handler`,  {
-            stdio: 'inherit'
-        })
-
+        const installingVRDependencies = ora('Installing Vue Native Rotuer Dependencies...').start();
+        const vueRouterDeps = execSync(`cd ${path} && yarn add react-native-screens react-native-reanimated react-native-paper react-native-gesture-handler`, )
+        installingVRDependencies.succeed('Vue Native Router Dependencies Installed');
         // vueRouterDeps.on('close', code => {
         //     if (code !== 0) {
         //         console.log('Unexpected error. Please try again.');

@@ -1,5 +1,5 @@
 const { program } = require('commander');
-const { version } = require('../package.json');
+const { version } = require('./package.json');
 const prompts = require('prompts');
 const isValidPath = require('is-valid-path');
 
