@@ -21,7 +21,7 @@
 ## Install
 
 ```sh
-npm install -g
+npm install -g vue-native-cli-updated
 ```
 
 ## Usage
@@ -56,4 +56,3 @@ Copyright © 2022 [mawlicious](https://github.com/mawlicious).<br />
 This project is [MIT](https://github.com/mawlicious/vue-native-cli-updated/blob/master/LICENSE) licensed.
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
