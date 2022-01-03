@@ -1,8 +1,19 @@
 {
   "name": "vue-native-cli-updated",
   "version": "1.0.0",
+  "description": "A working CLI tool for initiating a Vue Native Project",
+  "author": "mawlicious",
   "main": "index.js",
   "license": "MIT",
+  "homepage": "https://github.com/mawlicious/vue-native-cli-updated",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mawlicious/vue-native-cli-updated.git"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "vue-native": "index.js"
+  },
   "dependencies": {
     "chalk": "^5.0.0",
     "commander": "^8.3.0",
