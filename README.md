@@ -39,6 +39,12 @@ vue-native help
 vue-native -V
 ```
 
+## Initialize a project
+
+```sh
+vue-native init projectName
+```
+
 ## Author
 
 👤 **mawlicious**
