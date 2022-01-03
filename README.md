@@ -15,6 +15,9 @@
   <a href="https://www.buymeacoffee.com/mawlicious" target="_blank">
     <img alt="Buy Me a Coffee" src="https://badgen.net/badge/icon/buymeacoffee?icon=buymeacoffee&label">
   </a>
+  <a href="https://discord.gg/rPgwrD9gYa">
+    <img alt="Discord" src="https://img.shields.io/discord/923263357191061526">
+  </a>
 </p>
 
 > A working CLI tool for initiating a Vue Native Project
