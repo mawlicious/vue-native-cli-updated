@@ -12,7 +12,9 @@
   <a href="https://github.com/mawlicious/vue-native-cli-updated/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/mawlicious/vue-native-cli-updated" />
   </a>
-  [![Buymeacoffee](https://badgen.net/badge/icon/buymeacoffee?icon=buymeacoffee&label)](https://www.buymeacoffee.com/mawlicious)
+  <a href="https://www.buymeacoffee.com/mawlicious" target="_blank">
+    <img alt="Buy Me a Coffee" src="https://badgen.net/badge/icon/buymeacoffee?icon=buymeacoffee&label">
+  </a>
 </p>
 
 > A working CLI tool for initiating a Vue Native Project
