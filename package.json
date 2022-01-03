@@ -1,6 +1,6 @@
 {
   "name": "vue-native-cli-updated",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A working CLI tool for initiating a Vue Native Project",
   "author": "mawlicious",
   "main": "index.js",

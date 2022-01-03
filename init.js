@@ -73,9 +73,9 @@ module.exports = async (path) => {
 
     initalizingVueNative.succeed('Vue Native Initialized');
 
-    fs.copyFileSync(`./assets/vueTransformerPlugin.js`, `${path}/vueTransformerPlugin.js`)
+    fs.copyFileSync(`${__dirname}/assets/vueTransformerPlugin.js`, `${path}/vueTransformerPlugin.js`)
 
-    fs.copyFileSync(`./assets/metro.config.js`, `${path}/metro.config.js`)
+    fs.copyFileSync(`${__dirname}/assets/metro.config.js`, `${path}/metro.config.js`)
 
 
     if (installRouter.continue) {
