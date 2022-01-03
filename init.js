@@ -101,11 +101,11 @@ module.exports = async (path) => {
 
         fs.unlinkSync(`${path}/babel.config.js`)
 
-        fs.copyFileSync(`./assets/babel.config.js`, `${path}/babel.config.js`)
+        fs.copyFileSync(`${__dirname}/assets/babel.config.js`, `${path}/babel.config.js`)
 
         fs.unlinkSync(`${path}/App.js`)
 
-        fs.copyFileSync(`./assets/RouterApp.vue`, `${path}/App.vue`)
+        fs.copyFileSync(`${__dirname}/assets/RouterApp.vue`, `${path}/App.vue`)
 
         var dir = `${path}/screens`;
 
@@ -113,13 +113,13 @@ module.exports = async (path) => {
             fs.mkdirSync(dir);
         }
         
-        fs.copyFileSync(`./assets/HomeScreen.vue`, `${path}/screens/HomeScreen.vue`)
+        fs.copyFileSync(`${__dirname}/assets/HomeScreen.vue`, `${path}/screens/HomeScreen.vue`)
 
-        fs.copyFileSync(`./assets/DetailsScreen.vue`, `${path}/screens/DetailsScreen.vue`)
+        fs.copyFileSync(`${__dirname}/assets/DetailsScreen.vue`, `${path}/screens/DetailsScreen.vue`)
     } else {
         fs.unlinkSync(`${path}/App.js`)
 
-        fs.copyFileSync(`./assets/App.vue`, `${path}/App.vue`)
+        fs.copyFileSync(`${__dirname}/assets/App.vue`, `${path}/App.vue`)
     }
 
     console.log("Vue Native Project Successfully Initialized!")
