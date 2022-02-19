@@ -18,4 +18,11 @@ program
         require('./init.js')(path);
     });
 
+program
+    .command('add <feature>')
+    .description('Add a new feature to your project')
+    .action(async feature => {
+        require('./add.js')(feature);
+    });
+
 program.parse(process.argv);
