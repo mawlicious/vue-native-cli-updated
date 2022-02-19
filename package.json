@@ -15,10 +15,18 @@
     "vue-native": "index.js"
   },
   "dependencies": {
+    "@oclif/plugin-warn-if-update-available": "^2.0.4",
     "chalk": "^5.0.0",
     "commander": "^8.3.0",
     "is-valid-path": "^0.1.1",
     "ora": "^6.0.1",
     "prompts": "^2.4.2"
+  },
+  "oclif": {
+    "plugins": ["@oclif/plugin-warn-if-update-available"],
+    "warn-if-update-available": {
+      "timeoutInDays": 0.5,
+      "message": "<%= chalk.bold('★') %> <%= chalk.bold(config.name + '@' + latest) %> <%= chalk.bold('is now available, please update the CLI.') %>\n<%= chalk.dim('Proceeding with outdated version') %>\n"
+    }
   }
 }

@@ -75,7 +75,11 @@ module.exports = async (path) => {
 
     fs.copyFileSync(`${__dirname}/assets/vueTransformerPlugin.js`, `${path}/vueTransformerPlugin.js`)
 
-    fs.copyFileSync(`${__dirname}/assets/metro.config.js`, `${path}/metro.config.js`)
+    if (useExpo.continue) {
+        fs.copyFileSync(`${__dirname}/assets/metro.config.expo.js`, `${path}/metro.config.js`)
+    } else {
+        fs.copyFileSync(`${__dirname}/assets/metro.config.rncli.js`, `${path}/metro.config.js`)
+    }
 
 
     if (installRouter.continue) {
